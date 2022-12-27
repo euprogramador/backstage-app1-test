@@ -24,8 +24,7 @@ spec:
   system: public-websites
   dependsOn:
     - resource:default/artists-db
-  providesApis:
-    - artist-api  
+  providesApis: [artist-api]
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -34,19 +33,20 @@ metadata:
   name: artist-api
   description: Retrieve artist details
 spec:
-  type: openapi
+  type: grpc
   lifecycle: production
   owner: artist-relations-team
   system: artist-engagement-portal
   definition: |
-    openapi: "3.0.0"
-    info:
-      version: 1.0.0
-      title: Artist API
-      license:
-        name: MIT
-    servers:
-      - url: http://artist.spotify.net/v1
+    syntax = "proto3";
+
+    service Exampler {
+      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+    }
+
+    message ExampleMessage {
+      string example = 1;
+    };
 
 
 ---
