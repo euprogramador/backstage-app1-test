@@ -28,6 +28,7 @@ metadata:
   tags:
     - java
     - sls
+    - Red Hat
   links:
     - url: https://admin.example-org.com
       title: Admin Dashboard
